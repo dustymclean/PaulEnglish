@@ -366,5 +366,3 @@ export default function App() {
     </div>
   );
 }
-
-to githhttps://github.com/dustymclean/PaulEnglish.git
