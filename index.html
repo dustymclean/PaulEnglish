@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/PaulEnglish/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>paulenglish</title>
     <script type="module" crossorigin src="/PaulEnglish/assets/index-BUxWr8sb.js"></script>
@@ -10,5 +10,29 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <script>
+      // Store your original page title and favicon
+      const originalTitle = document.title;
+      const originalFavicon = "/favicon.svg";
+
+      // The flashy gold "!" alert icon
+      const alertFavicon = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="230" fill="%23D4AF37"/><text x="256" y="380" font-family="sans-serif" font-size="350" font-weight="bold" fill="%231C1C1E" text-anchor="middle">!</text></svg>';
+
+      // Listen for the user switching tabs
+      document.addEventListener("visibilitychange", () => {
+        const faviconLink = document.querySelector("link[rel='icon']");
+
+        if (document.hidden) {
+          // TRAP SPRUNG
+          document.title = "Hey! Come back here!";
+          if (faviconLink) faviconLink.href = alertFavicon;
+        } else {
+          // USER RETURNED
+          document.title = originalTitle;
+          if (faviconLink) faviconLink.href = originalFavicon;
+        }
+      });
+    </script>
   </body>
 </html>
