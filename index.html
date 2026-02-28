@@ -2,35 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/PaulEnglish/favicon.svg" />
+    <link id="dynamic-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='120' fill='%231C1C1E'/><rect x='40' y='40' width='432' height='432' rx='90' fill='none' stroke='%23D4AF37' stroke-width='16' opacity='0.9'/><g transform='translate(60, 60)' fill='none' stroke='%23D4AF37' stroke-width='35' stroke-linecap='round' stroke-linejoin='round'><path d='M 80,350 L 80,100 M 80,100 C 220,70 240,200 80,210'/><path d='M 380,100 C 260,80 230,200 320,215 C 230,230 240,360 380,340'/></g></svg>" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>paulenglish</title>
-    <script type="module" crossorigin src="/PaulEnglish/assets/index-Bpt06yqT.js"></script>
-    <link rel="stylesheet" crossorigin href="/PaulEnglish/assets/index-Ds8KLody.css">
+    <script type="module" crossorigin src="/PaulEnglish/assets/index-C8_y-UsG.js"></script>
+    <link rel="stylesheet" crossorigin href="/PaulEnglish/assets/index-DJngFpnH.css">
   </head>
   <body>
     <div id="root"></div>
 
     <script>
-      // Store your original page title and favicon
+      const faviconLink = document.getElementById("dynamic-favicon");
       const originalTitle = document.title;
-      const originalFavicon = "/favicon.svg";
+      const originalFavicon = faviconLink.href;
 
-      // The flashy gold "!" alert icon
-      const alertFavicon = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="256" r="230" fill="%23D4AF37"/><text x="256" y="380" font-family="sans-serif" font-size="350" font-weight="bold" fill="%231C1C1E" text-anchor="middle">!</text></svg>';
+      // The flashy gold "!" alert icon (Formatted for maximum Safari support)
+      const alertFavicon = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="120" fill="%23D4AF37"/><text x="256" y="380" font-family="sans-serif" font-size="350" font-weight="bold" fill="%231C1C1E" text-anchor="middle">!</text></svg>';
 
       // Listen for the user switching tabs
       document.addEventListener("visibilitychange", () => {
-        const faviconLink = document.querySelector("link[rel='icon']");
-
         if (document.hidden) {
-          // TRAP SPRUNG
+          // USER LEFT: Change title and show gold alert
           document.title = "Hey! Come back here!";
-          if (faviconLink) faviconLink.href = alertFavicon;
+          faviconLink.href = alertFavicon;
         } else {
-          // USER RETURNED
+          // USER RETURNED: Restore original "PE" Signature
           document.title = originalTitle;
-          if (faviconLink) faviconLink.href = originalFavicon;
+          faviconLink.href = originalFavicon;
         }
       });
     </script>

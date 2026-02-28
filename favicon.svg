@@ -1,49 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <style>
-    /* The live drawing animation */
-    @keyframes drawPen { 
-      0% { stroke-dashoffset: 100; } 
-      100% { stroke-dashoffset: 0; } 
-    }
-    
-    /* The subtle breathing and glowing effect */
-    @keyframes pulseGlow { 
-      0%, 100% { filter: drop-shadow(0 0 0px rgba(212,175,55,0)); stroke-width: 20; } 
-      50% { filter: drop-shadow(0 0 15px rgba(212,175,55,0.8)); stroke-width: 24; } 
-    }
-
-    /* Base settings: Default to FULLY VISIBLE (0) so Chrome users always see it */
-    .sig-base { 
-      fill: none; 
-      stroke: #D4AF37; 
-      stroke-linecap: round; 
-      stroke-linejoin: round; 
-      stroke-dasharray: 100; 
-      stroke-dashoffset: 0; 
-    }
-    
-    /* 'both' ensures the animation hides the ink before drawing it, IF animations are allowed */
-    .sig-p { 
-      stroke-width: 20;
-      animation: drawPen 1s ease-in-out both, pulseGlow 4s infinite ease-in-out 2.5s; 
-    }
-    
-    .sig-e { 
-      stroke-width: 20;
-      animation: drawPen 1.2s ease-in-out 1s both, pulseGlow 4s infinite ease-in-out 2.5s; 
-    }
-    
-    .animated-border { 
-      animation: pulseGlow 4s infinite ease-in-out 2.5s; 
-    }
-  </style>
-  
   <rect width="512" height="512" rx="120" fill="#1C1C1E"/>
-  <rect class="animated-border" x="40" y="40" width="432" height="432" rx="90" fill="none" stroke="#D4AF37" stroke-width="16" opacity="0.8"/>
   
-  <g transform="rotate(-8 256 256)">
-    <path class="sig-base sig-p" pathLength="100" d="M 140,180 Q 170,140 180,140 L 170,360 L 170,160 C 290,150 300,260 150,270" />
+  <rect x="40" y="40" width="432" height="432" rx="90" fill="none" stroke="#D4AF37" stroke-width="16" opacity="0.9"/>
+  
+  <g transform="translate(50, 60)" fill="none" stroke="#D4AF37" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
     
-    <path class="sig-base sig-e" pathLength="100" d="M 370,150 C 280,130 260,240 320,250 C 250,260 250,370 380,350" />
+    <path d="M 100,340 L 100,100 M 100,100 C 230,80 230,220 100,220" />
+    
+    <path d="M 380,100 C 280,80 240,200 310,210 C 240,220 240,350 380,330" />
+    
   </g>
 </svg>
